@@ -77,6 +77,15 @@ object Huffman {
    *       println("integer is  : "+ theInt)
    *   }
    */
+  def timesForChar(char: Char, freqs: List[(Char, Int)]) : List[(Char, Int)] = freqs match {
+    case List() => List((char, 1))
+    case y :: ys => 
+      if (char == y._1)
+        (char, y._2 + 1) :: ys
+      else
+        y :: timesForChar(char, ys)
+  }
+
   def times(chars: List[Char]): List[(Char, Int)] = ???
 
   /**
