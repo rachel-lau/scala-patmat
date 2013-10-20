@@ -42,6 +42,18 @@ class HuffmanSuite extends FunSuite {
     assert(timesForChar('a', List(('b', 2), ('c', 3))) == List(('b', 2), ('c', 3), ('a', 1)))
   }
 
+  test("times for one char") {
+    assert(times(List('a')) == List(('a', 1)))
+  }
+
+  test("times for two chars") {
+    assert(times(List('a', 'b')) == List(('b', 1), ('a', 1)))
+  }
+
+  test("times for three chars") {
+    assert(times(List('a', 'b', 'a')) == List(('a', 2), ('b', 1)))
+  }
+
   ignore("makeOrderedLeafList for some frequency table") {
     assert(makeOrderedLeafList(List(('t', 2), ('e', 1), ('x', 3))) === List(Leaf('e',1), Leaf('t',2), Leaf('x',3)))
   }

@@ -86,7 +86,11 @@ object Huffman {
         y :: timesForChar(char, ys)
   }
 
-  def times(chars: List[Char]): List[(Char, Int)] = ???
+  def times(chars: List[Char]): List[(Char, Int)] = chars match {
+    case Nil => List()
+    case y :: ys =>
+      timesForChar(y, times(ys))
+  }
 
   /**
    * Returns a list of `Leaf` nodes for a given frequency table `freqs`.
